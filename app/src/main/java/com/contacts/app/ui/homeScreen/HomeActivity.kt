@@ -25,7 +25,6 @@ class HomeActivity : AppCompatActivity(), ContactsAdapter.OnItemSelectedListener
         list_report.adapter = adapter
         adapter.setClickListener(this@HomeActivity)
 
-
         btn_get_data.setOnClickListener {
 
             progress_loading.visibility = View.VISIBLE
@@ -36,7 +35,6 @@ class HomeActivity : AppCompatActivity(), ContactsAdapter.OnItemSelectedListener
         }
 
     }
-
 
     /**
      * this method read some mocked data from a local json file and return to us a string stream
