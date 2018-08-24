@@ -81,10 +81,15 @@ class HomeActivity : AppCompatActivity(), ContactsAdapter.OnItemSelectedListener
 
     override fun onItemSelected(selectedContact: Contact) {
 
+//        var intent = Intent(this, ContactDetailsActivity::class.java)
+//        intent.putExtra("name", selectedContact.name)
+//        intent.putExtra("phone", selectedContact.phone)
+//        intent.putExtra("imageUrl", selectedContact.image)
+//        startActivity(intent)
+
         var intent = Intent(this, ContactDetailsActivity::class.java)
-        intent.putExtra("name", selectedContact.name)
-        intent.putExtra("phone", selectedContact.phone)
-        intent.putExtra("imageUrl", selectedContact.image)
+        intent.putExtra("contact", selectedContact)
+
         startActivity(intent)
 
     }

@@ -2,8 +2,10 @@ package com.contacts.app.ui.detailsScreen
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import com.contacts.app.R
+import com.contacts.app.model.Contact
 import com.contacts.app.util.loadUrl
 import kotlinx.android.synthetic.main.activity_contact_details.*
 import org.jetbrains.anko.sdk25.coroutines.onClick
@@ -18,11 +20,12 @@ class ContactDetailsActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
-        tv_name.text = intent.extras.getString("name")
-        tv_phone.text = intent.extras.getString("phone")
+        var selectedContact = intent.getParcelableExtra<Contact>("contact")
+        tv_name.text = selectedContact.name
+        tv_phone.text = selectedContact.phone
 
         //another usage of loadUrl extension method
-        iv_profile.loadUrl(intent.extras.getString("imageUrl"))
+        iv_profile.loadUrl(selectedContact.image ?: "")
 
         tv_name.onClick {
             toast(tv_name.text)
